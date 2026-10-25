@@ -1,7 +1,7 @@
 """Xử lý Dataset 1 (a10): làm sạch, sai phân bậc 1 và bậc 2.
 
 Đầu vào : data/raw/dataset1_raw.csv
-Đầu ra  : data/processed/a10_diff.csv  (cột: date, value, diff1, diff2)
+Đầu ra  : data/processed/dataset1_diff.csv  (cột: date, value, diff1, diff2)
 """
 import sys
 import pandas as pd
@@ -40,4 +40,4 @@ df["diff2"] = df["diff1"].diff()
 
 # 6. Lưu kết quả
 df.to_csv(OUT / "dataset1_diff.csv", index=False)
-print("Đã lưu:", OUT / "a10_diff.csv")
+print("Đã lưu:", OUT / "dataset1_diff.csv")
