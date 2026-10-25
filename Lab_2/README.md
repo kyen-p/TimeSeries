@@ -11,6 +11,20 @@ Bài Lab thực hiện quy trình xây dựng mô hình dự báo chuỗi thời
 
 Dữ liệu chia 80% train, 20% test, giữ nguyên thứ tự thời gian (không shuffle). Với dataset2, tập test là 12 tháng cuối.
 
+**Kết quả chính (dataset1 – a10)**
+
+| Nội dung            | Kết quả                                                                                      |
+| ------------------- | -------------------------------------------------------------------------------------------- |
+| Chất lượng dữ liệu  | 204 quan sát (07/1991 – 06/2008), không thiếu; min 2.81, max 29.67, trung bình 10.69         |
+| Xu hướng và mùa vụ  | Trung bình trượt 12 tháng tăng 3.49 → 23.17 (gấp 6.6 lần); mùa vụ rõ: đỉnh tháng 1 (hệ số 1.33), đáy tháng 2 (0.78); độ lệch chuẩn trượt tăng 0.63 → 2.96 |
+| ADF chuỗi gốc       | ADF statistic = 3.145, p = 1.000 → **không dừng**                                            |
+| ADF sau sai phân 1  | ADF statistic = -2.495, p = 0.117 → **chưa dừng** (p > 0.05)                                 |
+| ADF sau sai phân 2  | ADF statistic = -10.292, p ≈ 0 → dừng                                                        |
+| Mô hình chọn        | ARIMA(1,1,1); AIC = 582.47, BIC = 591.73                                                     |
+| Chẩn đoán phần dư   | Ljung-Box (lag 12) p ≈ 0 → phần dư **còn tự tương quan** (còn mùa vụ chưa được xử lý)        |
+| Đánh giá (41 tháng) | MAE = 3.667, RMSE = 4.624, MAPE = 18.04%                                                     |
+
+
 **Kết quả chính (dataset2 – AirPassengers)**
 
 | Nội dung            | Kết quả                                                                                  |
@@ -23,16 +37,9 @@ Dữ liệu chia 80% train, 20% test, giữ nguyên thứ tự thời gian (khô
 | Mô hình chọn        | SARIMA(0,1,1)(0,1,1,12); AIC [..], BIC [..]                                              |
 | Chẩn đoán phần dư   | Dao động quanh 0, gần như không tự tương quan; lag 12 vượt nhẹ ngưỡng                    |
 | Đánh giá (12 tháng) | SARIMA: MAE [..], RMSE [..]; ARIMA(1,1,1): MAE [..], RMSE [..]                           |
-| Kết luận            | **SARIMA vượt trội ARIMA**: ARIMA dự báo gần như đường phẳng, SARIMA bám sát đỉnh và đáy |
+| Kết luận            | SARIMA vượt trội ARIMA: ARIMA dự báo gần như đường phẳng, SARIMA bám sát đỉnh và đáy |
 
-**Kết quả chính (dataset1 – a10)**
 
-| Nội dung            | Kết quả                                 |
-| ------------------- | --------------------------------------- |
-| ADF chuỗi gốc       | [ADF statistic, p-value] → [kết luận]   |
-| ADF sau sai phân    | [ADF statistic, p-value] → d = [..]     |
-| Mô hình chọn        | ARIMA([p],[d],[q]); AIC [..], BIC [..]  |
-| Đánh giá (tập test) | MAE [..], RMSE [..], MAPE [..]          |
 
 ---
 
@@ -138,4 +145,3 @@ python scripts/[mo_hinh].py      # 2. fit mô hình, dự báo, đánh giá → 
 - Chia train/test theo thứ tự thời gian, **không shuffle**. Tập test chỉ dùng để đánh giá, không dùng để chọn bậc mô hình.
 - Bậc mô hình chọn dựa trên ACF/PACF, sau đó so sánh bằng AIC/BIC. Nhận xét về tính dừng và phần dư dựa trên biểu đồ và kiểm định ADF.
 - Chuỗi AirPassengers có mùa vụ dạng nhân (biên độ tăng theo mức chuỗi). Đề không yêu cầu, nhưng có thể lấy log trước khi fit để ổn định phương sai.
-
