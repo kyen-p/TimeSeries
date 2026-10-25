@@ -138,3 +138,4 @@ python scripts/[mo_hinh].py      # 2. fit mô hình, dự báo, đánh giá → 
 - Chia train/test theo thứ tự thời gian, **không shuffle**. Tập test chỉ dùng để đánh giá, không dùng để chọn bậc mô hình.
 - Bậc mô hình chọn dựa trên ACF/PACF, sau đó so sánh bằng AIC/BIC. Nhận xét về tính dừng và phần dư dựa trên biểu đồ và kiểm định ADF.
 - Chuỗi AirPassengers có mùa vụ dạng nhân (biên độ tăng theo mức chuỗi). Đề không yêu cầu, nhưng có thể lấy log trước khi fit để ổn định phương sai.
+
