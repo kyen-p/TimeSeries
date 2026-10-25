@@ -1,6 +1,6 @@
 """Vẽ đồ thị Bài tập thực hành (Dataset 1 - a10) và lưu vào figure/bai_tap_thuc_hanh/.
 
-Đầu vào : data/processed/a10_diff.csv
+Đầu vào : data/processed/dataset1_diff.csv
 Đầu ra  : figure/bai_tap_thuc_hanh/01_*.png, 02_*.png, ...
 """
 import sys
