@@ -46,29 +46,34 @@ Dữ liệu chia 80% train, 20% test, giữ nguyên thứ tự thời gian (khô
 ## 2. Cấu trúc thư mục
 
 ```
-Lab2_ARIMA_SARIMA/
-├── data/
-│   ├── raw/
-│   │   ├── a10.csv
-│   │   └── airline-passengers.csv
-│   └── processed/
-│       └── [file-da-xu-ly].csv
-├── scripts/
-│   ├── [tien_xu_ly].py
-│   ├── [mo_hinh].py
-│   └── [truc_quan].py
-├── docs/
-│   ├── lab2_description.md
-│   └── report.md
-├── figures/
-│   ├── 01_line_plot.png
-│   ├── 02_stl_decomposition.png
-│   ├── 03_seasonal_plot_heatmap.png
-│   ├── 04_differencing.png
-│   ├── 05_acf_pacf.png
-│   ├── 06_residual_diagnostics.png
-│   ├── 07_sarima_forecast.png
-│   └── 08_sarima_vs_arima.png
+Lab2_TimeSeries
+├── data 
+│ ├── processed
+│ │ ├── a10_diff.csv
+│ │ └── airline_diff.csv 
+│ └── raw
+│ ├── a10.csv 
+│ └── airline-passengers.csv 
+├── docs 
+│ ├── bai_tap_thuc_hanh
+│ │ └── lab2_description.ipynb 
+│ ├── bai_tap_nang_cao
+│ │ └── lab2_description.ipynb 
+│ └── report.md 
+├── figure 
+│ ├── bai_tap_thuc_hanh
+│ │ ├── 01_.....png
+│ │ └── ...
+│ └── bai_tap_nang_cao
+│ ├── 01_.....png
+│ └── ...
+├── scripts 
+│ ├── bai_tap_thuc_hanh
+│ │ ├── processed.py 
+│ │ └── visual.py 
+│ └── bai_tap_nang_cao
+│ ├── processed.py 
+│ └── visual.py 
 └── README.md
 ```
 
