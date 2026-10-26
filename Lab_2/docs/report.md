@@ -11,7 +11,7 @@ Mọi số liệu dưới đây lấy từ kết quả chạy của hai notebook
 
 | Nội dung | Phần A (dataset1) | Phần B (Air Passengers) |
 |---|---|---|
-| Thống kê mô tả (Min / Max / Mean / ) | 2,81 / 29,67 / 10,69/ 5.957  | 104 / 622 / 280,30/119.97  |
+| Thống kê mô tả (Min / Max / Mean /Std ) | 2,81 / 29,67 / 10,69/ 5.957  | 104 / 622 / 280,30/119.97  |
 | Xu hướng | Tăng mạnh (xu hướng gấp ~6,6 lần) | Tăng +285,7% từ đầu đến cuối chuỗi |
 | Mùa vụ | Chu kỳ 12 tháng (tháng 1 cao nhất, hệ số 1,331) | Chu kỳ 12 tháng (tháng 7 cao nhất, TB 351,3) |
 | ADF chuỗi gốc | p = 1,0 → không dừng | p = 0,9919 → không dừng |
