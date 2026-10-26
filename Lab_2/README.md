@@ -96,8 +96,8 @@ data/raw ──► [tien_xu_ly].py ──► data/processed ──► [mo_hinh].
 | Thuộc tính  | Giá trị                                                                         |
 | ----------- | ------------------------------------------------------------------------------- |
 | Ý nghĩa     | Doanh số theo tháng [xác nhận lại ý nghĩa cột dữ liệu]                          |
-| Số quan sát | [..]                                                                            |
-| Cột         | `date`, `value` [xác nhận tên cột]                                              |
+| Số quan sát | 204                                                                           |
+| Cột         | `date`, `value`                                             |
 | Nguồn       | `https://raw.githubusercontent.com/selva86/datasets/master/a10.csv`             |
 
 **Dataset 2: AirPassengers (phần nâng cao)**
