@@ -16,11 +16,11 @@ Dữ liệu chia 80% train, 20% test, giữ nguyên thứ tự thời gian (khô
 | Nội dung            | Kết quả                                                                                      |
 | ------------------- | -------------------------------------------------------------------------------------------- |
 | Chất lượng dữ liệu  | 204 quan sát (07/1991 – 06/2008), không thiếu; min 2.81, max 29.67, trung bình 10.69         |
-| Xu hướng và mùa vụ  | Trung bình trượt 12 tháng tăng 3.49 → 23.17 (gấp 6.6 lần); mùa vụ rõ: đỉnh tháng 1 (hệ số 1.33), đáy tháng 2 (0.78); độ lệch chuẩn trượt tăng 0.63 → 2.96 |
-| ADF chuỗi gốc       | ADF statistic = 3.145, p = 1.000 → **không dừng**                                            |
+| Xu hướng và mùa vụ  | Trung bình trượt 12 tháng tăng 3.5 → 23.2 (gấp 6.6 lần); mùa vụ rõ: đỉnh tháng 1 (hệ số 1.33), đáy tháng 2 (0.78); độ lệch chuẩn trượt tăng 0.63 → 2.96 |
+| ADF chuỗi gốc       | ADF statistic = 3.145, p = 1.0000 → **không dừng**                                            |
 | ADF sau sai phân 1  | ADF statistic = -2.495, p = 0.117 → **chưa dừng** (p > 0.05)                                 |
-| ADF sau sai phân 2  | ADF statistic = -10.292, p ≈ 0 → dừng                                                        |
-| Mô hình chọn        | ARIMA(1,1,1); AIC = 582.47, BIC = 591.73                                                     |
+| ADF sau sai phân 2  | ADF statistic = -10.292, p = 3.544e-18 ( ≈ 0) → dừng                                                        |
+| Mô hình chọn        | ARIMA(1,1,1):  AIC = 582.47, BIC = 591.73;                                                     |
 | Chẩn đoán phần dư   | Ljung-Box (lag 12) p ≈ 0 → phần dư **còn tự tương quan** (còn mùa vụ chưa được xử lý)        |
 | Đánh giá (41 tháng) | MAE = 3.667, RMSE = 4.624, MAPE = 18.04%                                                     |
 
@@ -31,12 +31,12 @@ Dữ liệu chia 80% train, 20% test, giữ nguyên thứ tự thời gian (khô
 | ------------------- | ---------------------------------------------------------------------------------------- |
 | Chất lượng dữ liệu  | 144 quan sát, không thiếu; min 104, max 622, trung bình 280.30 (nghìn hành khách)        |
 | Xu hướng và mùa vụ  | Xu hướng tăng rõ; mùa vụ chu kỳ 12 tháng, dạng nhân; đỉnh tháng 7–8, đáy tháng 11        |
-| ADF chuỗi gốc       | [ADF statistic, p-value] → không dừng                                                    |
+| ADF chuỗi gốc       | [ADF statistic = 0.815369, p-value=0.991880] → không dừng                                                    |
 | Sai phân            | d = 1, D = 1, s = 12 → chuỗi dao động quanh 0, biên độ ổn định hơn                       |
 | ACF/PACF            | Cả hai biểu đồ chỉ có lag 1 nổi bật (khoảng -0.24)                                       |
-| Mô hình chọn        | SARIMA(0,1,1)(0,1,1,12); AIC [..], BIC [..]                                              |
+| Mô hình chọn        | SARIMA(0,1,1)(0,1,1,12); AIC [803.41 ], BIC [811.37]                                              |
 | Chẩn đoán phần dư   | Dao động quanh 0, gần như không tự tương quan; lag 12 vượt nhẹ ngưỡng                    |
-| Đánh giá (12 tháng) | SARIMA: MAE [..], RMSE [..]; ARIMA(1,1,1): MAE [..], RMSE [..]                           |
+| Đánh giá (12 tháng) | SARIMA: MAE [16.09], RMSE [20.93]; ARIMA(1,1,1): MAE [66.24], RMSE [91.23]                           |
 | Kết luận            | SARIMA vượt trội ARIMA: ARIMA dự báo gần như đường phẳng, SARIMA bám sát đỉnh và đáy |
 
 
