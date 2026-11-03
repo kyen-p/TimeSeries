@@ -6,7 +6,7 @@
 
 Bài Lab thực hiện quy trình xây dựng mô hình dự báo chuỗi thời gian: **kiểm định tính dừng (ADF) → sai phân → ACF/PACF để chọn bậc → fit mô hình → chẩn đoán phần dư → dự báo và đánh giá**.
 
-- **Phần cơ bản (dataset1):** doanh số theo tháng (`a10.csv`), xây dựng mô hình ARIMA, đánh giá bằng MAE, RMSE, MAPE.
+- **Phần cơ bản (dataset1):** doanh số theo tháng (`dataset1_raw.csv`), xây dựng mô hình ARIMA, đánh giá bằng MAE, RMSE, MAPE.
 - **Phần nâng cao (dataset2):** AirPassengers, xây dựng mô hình SARIMA với s = 12 và so sánh với ARIMA.
 
 Dữ liệu chia 80% train, 20% test, giữ nguyên thứ tự thời gian (không shuffle). Với dataset2, tập test là 12 tháng cuối.
@@ -49,11 +49,11 @@ Dữ liệu chia 80% train, 20% test, giữ nguyên thứ tự thời gian (khô
 Lab2_TimeSeries
 ├── data 
 │ ├── processed
-│ │ ├── a10_diff.csv
-│ │ └── airline_diff.csv 
+│ │ ├── dataset1_diff.csv
+│ │ └── dataset2_diff.csv 
 │ └── raw
-│ ├── a10.csv 
-│ └── airline-passengers.csv 
+│ ├── dataset1_raw.csv
+│ └── dataset2_raw.csv 
 ├── docs 
 │ ├── bai_tap_thuc_hanh
 │ │ └── lab2_description.ipynb 
@@ -69,10 +69,10 @@ Lab2_TimeSeries
 │ └── ...
 ├── scripts 
 │ ├── bai_tap_thuc_hanh
-│ │ ├── processed.py 
+│ │ ├── processed_dataset1.py
 │ │ └── visual.py 
 │ └── bai_tap_nang_cao
-│ ├── processed.py 
+│ ├── processed_dataset2.py
 │ └── visual.py 
 └── README.md
 ```
@@ -132,14 +132,15 @@ pip install pandas numpy matplotlib statsmodels scikit-learn
 Chạy từ thư mục gốc `Lab2_ARIMA_SARIMA/`, theo **đúng thứ tự**:
 
 ```bash
-python scripts/[tien_xu_ly].py   # 1. tiền xử lý  → tạo data/processed/*.csv
-python scripts/[mo_hinh].py      # 2. fit mô hình, dự báo, đánh giá → tạo figures/*.png
+python scripts/bai_tap_thuc_hanh/processed_dataset1.py
+python scripts/bai_tap_thuc_hanh/visual.py
+python scripts/bai_tap_nang_cao/processed_dataset2.py
+python scripts/bai_tap_nang_cao/visual.py
 ```
 
-- Cần có Internet nếu code đọc dữ liệu trực tiếp từ link GitHub.
 - Script mô hình đọc dữ liệu từ `data/processed/`, nên **phải chạy bước tiền xử lý trước**.
 
-**Kiểm tra tái lập:** xóa `data/processed/` và `figures/`, chạy lại các lệnh trên, các file sẽ được sinh lại đầy đủ.
+**Kiểm tra tái lập:** xóa `data/processed/` và `figure/`, chạy lại các lệnh trên, các file sẽ được sinh lại đầy đủ.
 
 ---
 

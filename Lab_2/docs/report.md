@@ -183,7 +183,7 @@ Chia dữ liệu theo thứ tự thời gian (không shuffle):
 |---|---|
 | Trung bình (Mean) | 280,30 |
 | Độ lệch chuẩn (Std) | 119,97 |
-| Min | 104 (01/1949) |
+| Min | 104 (11/1949) |
 | Max | 622 (07/1960) |
 | Trung vị | 265,5 |
 | Số giá trị thiếu | 0 |
@@ -232,7 +232,7 @@ Chỉ lag 1 vượt ngưỡng → gợi ý p = 0, q = 1, P = 0, và thử Q = 0 
 
 Chọn SARIMA(0,1,1)×(0,1,1,12) (AIC thấp nhất, thấp hơn khoảng 84 đơn vị).
 
-**Chẩn đoán phần dư:** Ljung–Box lag 12: thống kê = 16,1454, p = 0,0955 > 0,05 → chưa thấy tự tương quan còn lại có ý nghĩa ở mức 5%.
+Chẩn đoán phần dư: Ljung–Box lag 12 trên toàn bộ phần dư: thống kê = 16,1454, p = 0,0955. Phần dư đầu tiên (13 giá trị, do d + D·s = 13) chỉ là kết quả khởi tạo mô hình; bỏ chúng đi và trừ 2 tham số MA đã ước lượng (model_df = 2) thì thống kê = 9,8879, p = 0,4504 (trung bình 0,65; độ lệch chuẩn 10,45). Cả hai cách đều p > 0,05, chưa thấy tự tương quan còn lại có ý nghĩa ở mức 5%.
 
 ### B6. Dự báo và đánh giá SARIMA (12 tháng test)
 
@@ -253,7 +253,7 @@ MAE = 16,09; RMSE = 20,93 (nghìn hành khách).
 | 11/1960 | 390 | 422,2 | 423,5 |
 | 12/1960 | 432 | 463,8 | 423,4 |
 
-SARIMA bám sát đường cong mùa vụ, kể cả đỉnh tháng 7–8; sai lệch lớn nhất ở 03/1960 (+47,8) và 12/1960 (+31,8), 11/1960 (+32,2).
+SARIMA bám sát đường cong mùa vụ, kể cả đỉnh tháng 7–8; sai lệch lớn nhất ở 03/1960 (+47,8), 11/1960 (+32,2) và 12/1960 (+31,8).
 
 ### B7. So sánh với ARIMA(1,1,1)
 
